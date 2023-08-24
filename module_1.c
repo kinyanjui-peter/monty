@@ -65,7 +65,7 @@ void push_monty(stack_t **stack, unsigned int line_number)
  * @stack: pointer to the head of the stack
  * @line_number:current line number.
  */
-void pall_monty(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = NULL;
 	(void)line_number;
