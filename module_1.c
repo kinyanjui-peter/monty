@@ -59,3 +59,22 @@ void push_monty(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = new;
 	*stack = new;
 }
+
+/**
+ * pall_monty - prints all stack values
+ * @stack: pointer to the head of the stack
+ * @line_number:current line number.
+ */
+void pall_monty(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = NULL;
+	(void)line_number;
+
+	tmp = *stack;
+
+	while (tmp != NULL)
+	{
+		fprintf(stdout, "%d\n", tmp->n);
+		tmp = tmp->next;
+	}
+}
