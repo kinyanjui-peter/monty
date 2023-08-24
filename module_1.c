@@ -49,15 +49,52 @@ stack_t *createnew_node(int n)
 
 void push_monty(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new = NULL;
-	(void)line_number;
+	stack_t *tmp, *new;
+	int i;
 
-	new = createnew_node(value);
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
+	{
+		set_tok_error(malloc_error());
+		return;
+	}
 
-	new->next = *stack;
-	if (*stack != NULL)
-		(*stack)->prev = new;
-	*stack = new;
+	if (op_toks[1] == NULL)
+	{
+		set_tok_error(no_int_error(line_number));
+		return;
+	}
+
+	for (i = 0; op_toks[1][i]; i++)
+	{
+		if (op_toks[1][i] == '-' && i == 0)
+			continue;
+		if (op_toks[1][i] < '0' || op_toks[1][i] > '9')
+		{
+			set_tok_error(no_int_error(line_number));
+			return;
+		}
+	}
+	new->n = atoi(op_toks[1]);
+
+	if (check_mode(*stack) == STACK) /* STACK mode insert at front */
+	{
+		tmp = (*stack)->next;
+		new->prev = *stack;
+		new->next = tmp;
+		if (tmp)
+			tmp->prev = new;
+		(*stack)->next = new;
+	}
+	else /* QUEUE mode insert at end */
+	{
+		tmp = *stack;
+		while (tmp->next)
+			tmp = tmp->next;
+		new->prev = tmp;
+		new->next = NULL;
+		tmp->next = new;
+	}
 }
 
 /**
