@@ -83,7 +83,7 @@ void pall_monty(stack_t **stack, unsigned int line_number)
  * @stack: points to head of the stack
  * @line_number: the current line number
  */
-void pop_monty(stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
