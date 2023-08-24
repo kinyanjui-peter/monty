@@ -24,7 +24,7 @@ void top_pint(stack_t **stack, unsigned int line_number)
  * Return: new node
  */
 
-stack_t *createnewnode(int n)
+stack_t *createnew_node(int n)
 {
 	stack_t *new = NULL;
 
@@ -39,4 +39,23 @@ stack_t *createnewnode(int n)
 	new->prev = NULL;
 
 	return (new);
+}
+/**
+ * push_monty - adds a new node with the given value to the stack
+ * @stack: pointer to the head of the stack
+ * @line_number: number to be pushed
+ *
+ */
+
+void push_monty(stack_t **stack, unsigned int line_number)
+{
+	stack_t *new = NULL;
+	(void)line_number;
+
+	new = createnew_node(value);
+
+	new->next = *stack;
+	if (*stack != NULL)
+		(*stack)->prev = new;
+	*stack = new;
 }
