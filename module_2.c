@@ -42,3 +42,25 @@ void pchar(stack_t **stack, unsigned int line_number)
         exit(EXIT_FAILURE);
     }
 }
+/**
+ * add - adds the top two elements of the stack.
+ * @stack: pointer to the head of the stack
+ * @line_number: the line number
+ */
+void add(stack_t **stack, unsigned int line_number)
+{
+    stack_t *val = NULL;
+    int sum = 0;
+
+    if (!*stack || !(*stack)->next)
+    {
+        fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+        _free(*stack); // Assuming _free is defined in a different file
+        exit(EXIT_FAILURE);
+    }
+    val = (*stack)->next;
+    sum = (*stack)->n;
+    sum += (*stack)->next->n;
+    pop(stack, line_number); // Assuming pop is defined in a different file
+    val->n = sum;
+}
