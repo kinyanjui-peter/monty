@@ -30,13 +30,16 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 void top_pint(stack_t **stack, unsigned int line_number);
+stack_t *createnew_node(int n);
+void push_monty(stack_t **stack, unsigned int line_number);
+void pall(stack_t **new_stack, unsigned int line_num);
+void pop(stack_t **stack, unsigned int line_number);
 
 
 
 
 
 
-
-
-void top_pint(stack_t **stack, unsigned int line_number);
+void set_tok_error(int error_code);
+void free_stack(stack_t **stack);
 #endif

@@ -97,26 +97,24 @@ void push_monty(stack_t **stack, unsigned int line_number)
 	}
 }
 
+
 /**
- * pall_monty - prints all stack values
- * @stack: pointer to the head of the stack
- * @line_number:current line number.
+ * pall - Prints the values of a stack_t linked list.
+ * @stack: A pointer to the top mode node of a stack_t linked list.
+ * @line_number: The current working line number of a Monty bytecodes file.
  */
-void pall(stack_t **stack, unsigned int line_number)
-{
-	stack_t *tmp = NULL;
-	(void)line_number;
-
-	tmp = *stack;
-
-	while (tmp != NULL)
-	{
-		fprintf(stdout, "%d\n", tmp->n);
-		tmp = tmp->next;
-	}
+void pall(stack_t **new_stack, unsigned int line_num) {
+    stack_t *current_node = (*new_stack)->next;
+    while (current_node)
+    {
+        printf("%d\n", current_node->n);
+        current_node = current_node->next;
+    }
+    (void)line_num;
 }
-/**
- * pop_monty - removes top mostelement of the stack.
+
+/** 
+ * pop - removes top mostelement of the stack.
  * @stack: points to head of the stack
  * @line_number: the current line number
  */

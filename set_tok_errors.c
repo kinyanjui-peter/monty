@@ -9,7 +9,7 @@ void set_tok_error(int error_code) {
     char **new_toks = NULL;
 
     toks_len = token_arr_len();
-    new_toks = (char **)malloc(sizeof(char *) * (toks_len + 2)); // Cast added
+    new_toks = (char **)malloc(sizeof(char *) * (toks_len + 2));
     if (!op_toks) {
         malloc_error();
         return;
