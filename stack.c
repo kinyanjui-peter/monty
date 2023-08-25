@@ -17,3 +17,21 @@ void _free(stack_t *stack)
         free(current);
     }
 }
+/**
+ * clean_stack_and_resources - Free stack and close files
+ * @stack: Stack
+ */
+
+void clean_stack(stack_t **stack)
+{
+	stack_t *current = *stack;
+
+	while (current)
+	{
+		stack_t *temp = *stack;
+		*stack = (*stack)->next;
+		free(temp);
+	}
+	fclose(cmd_file.fd);
+	free(cmd_file.line);
+}
