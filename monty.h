@@ -43,11 +43,8 @@ void sub(stack_t **stack, unsigned int line_number);
 
 /*module_3*/
 
-
-
-
-
-
+void Execute(char *filename);
+void _free(stack_t *stack);
 void set_tok_error(int error_code);
 void free_stack(stack_t **stack);
 #endif
