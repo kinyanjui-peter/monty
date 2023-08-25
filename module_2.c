@@ -21,3 +21,24 @@ void sub(stack_t **stack, unsigned int line_number)
     pop(stack, line_number);
     val->n = diff;
 }
+/**
+ * pchar - adds the top two elements of the stack.
+ * @stack: pointer to the head of stack
+ * @line_number: the line number
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+    if (!*stack)
+    {
+        fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+    if ((*stack)->n >= 0 && (*stack)->n <= 127)
+        printf("%c\n", (*stack)->n);
+    else
+    {
+        fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+        _free(*stack); // Assuming _free is defined in a different file
+        exit(EXIT_FAILURE);
+    }
+}
