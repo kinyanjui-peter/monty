@@ -64,3 +64,27 @@ void add(stack_t **stack, unsigned int line_number)
     pop(stack, line_number); // Assuming pop is defined in a different file
     val->n = sum;
 }
+/**
+ * swap - swaps the top two elements of the stack.
+ * @stack: double pointer to the head of the list
+ * @line_number: line number
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+    stack_t *val;
+    int tmp = 0;
+
+    val = *stack;
+    if (val == NULL || val->next == NULL)
+    {
+        fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+        _free(*stack); // Assuming _free is defined in a different file
+        exit(EXIT_FAILURE);
+    }
+    else
+    {
+        tmp = val->n;
+        val->n = val->next->n;
+        val->next->n = tmp;
+    }
+}
