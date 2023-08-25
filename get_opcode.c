@@ -16,7 +16,7 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 	instruction_t op[] = {
 		{"push", push},
 		{"pall", pall},
-/**	{"pint", pint},
+/*		{"pint", pint},
 		{"pop", pop},
 		{"nop", nop},
 		{"swap", swap},
