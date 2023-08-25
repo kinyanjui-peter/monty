@@ -42,6 +42,13 @@ void pchar(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 
 /*module_3*/
+/*errors*/
+void usage_error(void);
+void instruction_error(FILE *fd, char *line, stack_t *stack, char *val, int line_n);
+void push_error(FILE *fd, char *line, stack_t *stack, int line_number);
+void open_error(char *file);
+
+
 
 void Execute(char *filename);
 void _free(stack_t *stack);
