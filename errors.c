@@ -43,4 +43,16 @@ void push_error(FILE *fd, char *line, stack_t *stack, int line_number)
 	freestack(stack);
 	exit(EXIT_FAILURE);
 }
+/**
+ *open_error - prints an open file error message
+ *@file: file
+ * Return: FAILURE
+ */
 
+void open_error(char *file)
+{
+	fprintf(stderr, "Error: Can't open file %s\n", file);
+
+	exit(EXIT_FAILURE);
+
+}
