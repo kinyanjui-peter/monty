@@ -16,7 +16,7 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 	instruction_t op[] = {
 		{"push", push},
 		{"pall", pall},
-		{"pint", pint},
+/**	{"pint", pint},
 		{"pop", pop},
 		{"nop", nop},
 		{"swap", swap},
@@ -25,28 +25,35 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 		{"div", divide},
 		{"mul", mul},
 		{"mod", mod},
-		{"pchar", pchar},
+		{"pchar", pchar},*/
 		{NULL, NULL}
 	};
+	while (op[i].opcode) {
+        if (!strcmp(arg, op[i].opcode)) {
+            if (!strcmp(arg, "push")) {
+                int is_valid_integer = 1;
+                for (int j = 0; val[j] != '\0'; j++) {
+                    if (!isdigit(val[j])) {
+                        is_valid_integer = 0;
+                        break;
+                    }
+                }
+                if (is_valid_integer) {
+                    value = atoi(val);
+                } else {
+                    return 1;
+                }
+            }
+            op[i].f(stack, (unsigned int)line_number);
+            break;
+        }
+        i++;
+    }
 
-	while (op[i].opcode)
-	{
-		if (!strcmp(arg, op[i].opcode))
-		{
-			if (!strcmp(arg, "push"))
-			{
-				if (_isdigit(val) == 1)
-					value = atoi(val);
-				else
-					return (1);/** if not digit*/
-			}
-			op[i].f(stack, (unsigned int)line_number);
-			break;
-		}
-		i++;
-	}
-	if (!op[i].opcode)
-		return (-1);
+    if (!op[i].opcode) {
+        return -1;
+    }
 
-	return (0);
+    return 0;
 }
+
