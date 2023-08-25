@@ -34,6 +34,14 @@ stack_t *createnew_node(int n);
 void push_monty(stack_t **stack, unsigned int line_number);
 void pall(stack_t **new_stack, unsigned int line_num);
 void pop(stack_t **stack, unsigned int line_number);
+/*module_2*/
+void nop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+
+/*module_3*/
 
 
 
