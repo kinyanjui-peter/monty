@@ -20,8 +20,8 @@ void nop(stack_t **stack, unsigned int line_number)
 
 void swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top = *stack;  // Renamed 'val' to 'top'
-	int temp = 0;  // Renamed 'tmp' to 'temp'
+	stack_t *top = *stack;
+	int temp = 0;
 
 	if (top == NULL || top->next == NULL)
 	{
@@ -81,4 +81,27 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
+}
+/**
+ * add - adds the top two elements of the stack.
+ * @stack: double pointer to the head of the stack
+ * @line_number: the line number
+ */
+
+void add(stack_t **stack, unsigned int line_number)
+{
+    stack_t *temp_stack = NULL;
+    int result = 0;
+
+    if (!*stack || !(*stack)->next)
+    {
+        fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+        _free(*stack);
+        exit(EXIT_FAILURE);
+    }
+    temp_stack = (*stack)->next;
+    result = (*stack)->n;
+    result += (*stack)->next->n;
+    pop(stack, line_number);
+    temp_stack->n = result;
 }
