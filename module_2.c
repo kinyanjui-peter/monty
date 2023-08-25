@@ -36,3 +36,26 @@ void swap(stack_t **stack, unsigned int line_number)
 		top->next->n = temp;
 	}
 }
+/**
+ * sub - subtracts the top two elements of the stack.
+ * @stack: double pointer to the head of the stack
+ * @line_number: the line number
+ */
+
+void sub(stack_t **stack, unsigned int line_number)
+{
+    stack_t *second_element = NULL;
+    int difference = 0;
+
+    if (!*stack || !(*stack)->next)
+    {
+        fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+        _free(*stack);
+        exit(EXIT_FAILURE);
+    }
+    second_element = (*stack)->next;
+    difference = second_element->n;
+    difference -= (*stack)->n;
+    pop(stack, line_number);
+    second_element->n = difference;
+}
