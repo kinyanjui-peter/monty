@@ -46,19 +46,17 @@ void mul(stack_t **stack, unsigned int line_number)
 	stack_t *top;
 	stack_t *second;
 
-    if (!*stack || !(*stack)->next)
-    {
-        fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
-        _free(*stack);
-        exit(EXIT_FAILURE);
-    }
+	if (!*stack || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		_free(*stack);
+		exit(EXIT_FAILURE);
+	}
 
-    top = *stack;
-    second = top->next;
-
-    second->n *= top->n;
-
-    pop(stack, line_number);
+	top = *stack;
+	second = top->next;
+	second->n *= top->n;
+	pop(stack, line_number);
 }
 /**
  * mod - computes the rest of the division of the second
