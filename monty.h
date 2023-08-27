@@ -80,6 +80,5 @@ void reportopenerror(char *filename);
 void reportusageerror(void);
 void reportpusherror(FILE *fd, char *lineBuffer, stack_t *stack,
 		int lineNumber);
-void reportinstructionerror(FILE *fd, char *lineBuffer,
-	stack_t *stack, char *instruction, int lineNumber;
+void reportinstructionerror(FILE *fd, char *lineBuffer, stack_t *stack, char *instruction, int lineNumber);
 #endif

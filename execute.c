@@ -35,7 +35,7 @@ void execute(char *argv)
 				data_stack, current_line); /** print push error*/
 	else if (result == -1) /* get_opt returns -1 if not the instruction */
 		reportinstructionerror(cmd_data.fd, cmd_data.line,
-				data_stack, current_token, current_line);
+			data_stack, current_token, current_line);
 /* print instruction error */
 	}
 	free(cmd_data.line);
