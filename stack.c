@@ -1,5 +1,7 @@
 #include "monty.h"
 
+cmd_t cmd = {NULL, NULL};
+
 /**
  * free_stack - free the stack
  * @stack: stack to be freed
@@ -32,14 +34,6 @@ void clean_stack(stack_t **stack)
 		*stack = (*stack)->next;
 		free(temp);
 	}
-	 (cmd.fd)
-	 {
-		 fclose(cmd.fd);
-		 cmd.fd = NULL;
-	 }
-	 if (cmd.line)
-	 {
-		 free(cmd.line);
-		 cmd.line = NULL;
-	 }
+	fclose(cmd.fd);
+	free(cmd.line);
 }
