@@ -1,5 +1,4 @@
 #include "monty.h"
-#include "monty.h"
 
 cmd_t cmd_data = {NULL, NULL};
 

@@ -13,7 +13,7 @@ void _free(stack_t *stack)
 
     if (current != NULL)
     {
-        free_stack(current->next);
+        freestack(current->next);
         free(current);
     }
 }
@@ -32,6 +32,6 @@ void clean_stack(stack_t **stack)
 		*stack = (*stack)->next;
 		free(temp);
 	}
-	fclose(cmd_file.fd);
-	free(cmd_file.line);
+	fclose(cmd.fd);
+	free(cmd.line);
 }

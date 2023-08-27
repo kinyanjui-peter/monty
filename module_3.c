@@ -43,6 +43,9 @@ void divide(stack_t **stack, unsigned int line_number)
 
 void mul(stack_t **stack, unsigned int line_number)
 {
+	stack_t *top;
+	stack_t *second;
+
     if (!*stack || !(*stack)->next)
     {
         fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
@@ -50,8 +53,8 @@ void mul(stack_t **stack, unsigned int line_number)
         exit(EXIT_FAILURE);
     }
 
-    stack_t *top = *stack;
-    stack_t *second = top->next;
+    top = *stack;
+    second = top->next;
 
     second->n *= top->n;
 

@@ -31,7 +31,7 @@ stack_t *createNode(int n)
  * @value: value to be pushed onto the stack
  */
 
-void push(stack_t **stack, unsigned int line_number, int value)
+void push(stack_t **stack, unsigned int line_number)
 {
     stack_t *new = NULL;
     (void)line_number;
