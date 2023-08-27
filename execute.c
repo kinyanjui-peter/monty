@@ -31,9 +31,9 @@ void execute(char *argv)
             current_value = strtok(NULL, " \n\t\r");
             result = get_opc(&data_stack, current_token, current_value, current_line);
             if (result == 1) /* get_opt returns 1 when the value is not a digit */
-                push_error(cmd_data.fd, cmd_data.line, data_stack, current_line); /** print push error*/
+                reportpusherror(cmd_data.fd, cmd_data.line, data_stack, current_line); /** print push error*/
             else if (result == -1) /* get_opt returns -1 if not the instruction */
-                instr_error(cmd_data.fd, cmd_data.line, data_stack, current_token, current_line);
+                reportinstructionerror(cmd_data.fd, cmd_data.line, data_stack, current_token, current_line);
                 /* print instruction error */
         }
         free(cmd_data.line);
@@ -42,7 +42,7 @@ void execute(char *argv)
     }
     else
     {
-        open_error(argv);
+        reportopenerror(argv);
     }
 }
 

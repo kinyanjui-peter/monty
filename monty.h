@@ -50,8 +50,6 @@ typedef struct instruction_s {
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push_error(FILE *fd, char *line, stack_t *stack, int line_number);
-void instr_error(FILE *fd, char *line, stack_t *stack, char *val, int line_number);
 int _isdigit(char *c);
 stack_t *createNode(int n);
 int check_push(char *token);
@@ -73,6 +71,12 @@ void execute(char *argv);
 int get_opc(stack_t **stack, char *arg, char *val, int line_number);
 void _free(stack_t *stack);
 void clean_stack(stack_t **stack);
-void usage_error(void);
-void open_error(char *file);
+/*Errors*/
+void reportopenerror(char *filename);
+void reportusageerror(void);
+void reportpusherror(FILE *fd, char *lineBuffer, stack_t *stack, int lineNumber);
+void reportinstructionerror(FILE *fd, char *lineBuffer,
+	stack_t *stack, char *instruction, int lineNumber);
+
+
 #endif

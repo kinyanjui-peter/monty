@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 	{
 		 /*output  usage error*/
 
-		usage_error();
+		reportusageerror();
 	}
 	else
 	{
