@@ -10,22 +10,23 @@ int value;
 
 stack_t *createNode(int n)
 {
-    stack_t *new_node = NULL;
+	stack_t *new_node = NULL;
 
-    new_node = malloc(sizeof(stack_t));
-    if (new_node == NULL)
-    {
-        fprintf(stderr, "Error: malloc failed\n");
-        exit(EXIT_FAILURE);
-    }
-    new_node->n = n;
-    new_node->next = NULL;
-    new_node->prev = NULL;
+	new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+}
+new_node->n = n;
+new_node->next = NULL;
+new_node->prev = NULL;
 
-    return (new_node);
+return (new_node);
 }
 
-/** push - pushes a new node with the given value to the stack
+/**
+ * push - pushes a new node with the given value to the stack
  * @stack: double pointer to the head of the stack
  * @line_number: line number where the operation occurs (not used in this case)
  * @value: value to be pushed onto the stack
@@ -33,15 +34,15 @@ stack_t *createNode(int n)
 
 void push(stack_t **stack, unsigned int line_number)
 {
-    stack_t *new = NULL;
-    (void)line_number;
+	stack_t *new = NULL;
+	(void)line_number;
 
-    new = createNode(value);
+	new = createNode(value);
 
-    new->next = *stack;
-    if (*stack != NULL)
-        (*stack)->prev = new;
-    *stack = new;
+	new->next = *stack;
+	if (*stack != NULL)
+	(*stack)->prev = new;
+*stack = new;
 }
 
 #include "monty.h"
