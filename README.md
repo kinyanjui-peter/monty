@@ -1,3 +1,3 @@
-# monty
-Implementation of stack and queue using linked	:
-witten by: MelDev_Tech
+monty project
+Implementation of stack and queue:
+written by: MelDev_Tech
