@@ -11,6 +11,8 @@
 
 /**
  * struct cmd_s - cmd
+ * @fd: struct member
+ * @line: struct member
  */
 
 typedef struct cmd_s
@@ -32,10 +34,11 @@ extern int info;
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
-typedef struct stack_s {
-    int n;
-    struct stack_s *prev;
-    struct stack_s *next;
+typedef struct stack_s
+{
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 /**
  * struct instruction_s - opcode and its function
@@ -45,9 +48,10 @@ typedef struct stack_s {
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO
  */
-typedef struct instruction_s {
-    char *opcode;
-    void (*f)(stack_t **stack, unsigned int line_number);
+typedef struct instruction_s
+{
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 int _isdigit(char *c);
@@ -74,9 +78,8 @@ void clean_stack(stack_t **stack);
 /*Errors*/
 void reportopenerror(char *filename);
 void reportusageerror(void);
-void reportpusherror(FILE *fd, char *lineBuffer, stack_t *stack, int lineNumber);
+void reportpusherror(FILE *fd, char *lineBuffer, stack_t *stack,
+		int lineNumber);
 void reportinstructionerror(FILE *fd, char *lineBuffer,
-	stack_t *stack, char *instruction, int lineNumber);
-
-
+	stack_t *stack, char *instruction, int lineNumber;
 #endif
